@@ -3,7 +3,7 @@ import ProcessSection from "@/components/sections/processSection"
 import AboutSection from "@/components/sections/aboutSection"
 import SideNav from "@/components/layout/sideNav"
 import { useScrollSpy } from "@/hooks/dynamicScroll"
-
+import "@/index.css"
 const sections = [
   { id: "hero", label: "Home" },
   { id: "process", label: "Process" },

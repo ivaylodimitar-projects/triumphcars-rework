@@ -5,6 +5,11 @@ import { motion } from "framer-motion"
 export default function HeroSection() {
   return (
     <SectionWrapper id="hero">
+      {/* TEST: Hello World with Tailwind */}
+      <div className="absolute top-4 right-4 bg-red-500 text-white p-4 rounded-lg text-2xl font-bold z-50">
+        Hello World - Tailwind Test
+      </div>
+
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <img
