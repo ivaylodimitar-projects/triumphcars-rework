@@ -6,31 +6,51 @@ const steps = [
     number: "01",
     title: "Избор на Автомобил",
     description: "Помагаме ви да изберете идеалния автомобил от американските търгове и дилъри.",
-    icon: "🚗"
+    icon: (
+      <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+      </svg>
+    )
   },
   {
     number: "02",
     title: "Проверка и Оценка",
     description: "Извършваме детайлна проверка на състоянието и историята на автомобила.",
-    icon: "🔍"
+    icon: (
+      <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    )
   },
   {
     number: "03",
     title: "Покупка и Транспорт",
     description: "Закупуваме автомобила и организираме транспорта до България.",
-    icon: "🚢"
+    icon: (
+      <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+    )
   },
   {
     number: "04",
     title: "Митническо Оформяне",
     description: "Грижим се за цялата документация и митническо оформяне.",
-    icon: "📋"
+    icon: (
+      <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+      </svg>
+    )
   },
   {
     number: "05",
     title: "Доставка при Вас",
     description: "Доставяме автомобила директно до вас, готов за регистрация.",
-    icon: "✅"
+    icon: (
+      <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+      </svg>
+    )
   }
 ]
 
@@ -77,7 +97,7 @@ export default function ProcessSection() {
                     whileHover={{ scale: 1.02 }}
                     className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-700/50 shadow-xl"
                   >
-                    <div className="text-5xl mb-4">{step.icon}</div>
+                    <div className="text-blue-400 mb-4 flex justify-center">{step.icon}</div>
                     <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
                       {step.title}
                     </h3>

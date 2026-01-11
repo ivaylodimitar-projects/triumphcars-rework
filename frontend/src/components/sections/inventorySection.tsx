@@ -1,47 +1,10 @@
 import SectionWrapper from "../ui/sectionWrapper"
 import { motion } from "framer-motion"
-
-// Sample car data - в бъдеще ще се зарежда от API
-const cars = [
-  {
-    id: 1,
-    name: "Ford Mustang GT",
-    year: 2022,
-    price: "45,000",
-    image: "https://images.unsplash.com/photo-1584345604476-8ec5f5d3e0c0?auto=format&fit=crop&w=800&q=80",
-    mileage: "15,000",
-    location: "Калифорния"
-  },
-  {
-    id: 2,
-    name: "Chevrolet Camaro",
-    year: 2021,
-    price: "38,000",
-    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
-    mileage: "22,000",
-    location: "Тексас"
-  },
-  {
-    id: 3,
-    name: "Dodge Challenger",
-    year: 2023,
-    price: "52,000",
-    image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=800&q=80",
-    mileage: "8,000",
-    location: "Флорида"
-  },
-  {
-    id: 4,
-    name: "Tesla Model 3",
-    year: 2022,
-    price: "42,000",
-    image: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=800&q=80",
-    mileage: "12,000",
-    location: "Невада"
-  }
-]
+import { useState } from "react"
 
 export default function InventorySection() {
+  const [isLoading, setIsLoading] = useState(true)
+
   return (
     <SectionWrapper id="inventory">
       <div className="w-full max-w-7xl mx-auto px-4">
@@ -51,93 +14,118 @@ export default function InventorySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
             Налични Автомобили
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-6">
             Разгледайте нашата селекция от качествени автомобили от САЩ
           </p>
+
+          {/* Mobile.bg Badge */}
+          <div className="flex items-center justify-center gap-2 text-gray-400">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+            </svg>
+            <span className="text-sm">Актуални обяви от Mobile.bg</span>
+          </div>
         </motion.div>
 
-        {/* Cars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {cars.map((car, index) => (
-            <motion.div
-              key={car.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="group"
-            >
-              <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-gray-600/50">
-                {/* Car Image */}
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={car.image}
-                    alt={car.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60" />
-                  
-                  {/* Year Badge */}
-                  <div className="absolute top-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-full font-bold shadow-lg">
-                    {car.year}
-                  </div>
-                </div>
-
-                {/* Car Info */}
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
-                    {car.name}
-                  </h3>
-
-                  {/* Details */}
-                  <div className="space-y-2 mb-6">
-                    <div className="flex justify-between text-gray-300">
-                      <span className="flex items-center gap-2">
-                        <span>📍</span>
-                        <span>{car.location}</span>
-                      </span>
-                      <span className="flex items-center gap-2">
-                        <span>🛣️</span>
-                        <span>{car.mileage} км</span>
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Price and CTA */}
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-700">
-                    <div>
-                      <div className="text-sm text-gray-400">Цена</div>
-                      <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
-                        ${car.price}
-                      </div>
-                    </div>
-                    <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
-                      Детайли
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* View More Button */}
+        {/* Mobile.bg Iframe Container */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-12"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative w-full"
         >
-          <button className="px-10 py-4 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl text-lg border border-gray-600">
-            Виж Всички Автомобили
-          </button>
+          {/* Loading Indicator */}
+          {isLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 z-10">
+              <div className="text-center">
+                <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent mb-4"></div>
+                <p className="text-gray-300 text-lg">Зареждане на автомобили...</p>
+              </div>
+            </div>
+          )}
+
+          {/* Iframe Wrapper */}
+          <div className="relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 shadow-2xl">
+            {/* Decorative Header */}
+            <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 border-b border-gray-700/50 px-6 py-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <div className="text-gray-400 text-sm font-mono">
+                  triumphcars.mobile.bg
+                </div>
+                <a
+                  href="https://triumphcars.mobile.bg/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 transition-colors duration-300 text-sm flex items-center gap-2"
+                >
+                  <span>Отвори</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Iframe */}
+            <div className="relative" style={{ height: "800px" }}>
+              <iframe
+                src="https://triumphcars.mobile.bg/"
+                className="w-full h-full"
+                onLoad={() => setIsLoading(false)}
+                title="Triumph Cars - Mobile.bg Обяви"
+                style={{
+                  border: "none",
+                  display: "block"
+                }}
+                sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+              />
+            </div>
+
+            {/* Bottom Info Bar */}
+            <div className="bg-gradient-to-r from-gray-800/80 to-gray-900/80 border-t border-gray-700/50 px-6 py-3">
+              <div className="flex items-center justify-between text-sm">
+                <div className="flex items-center gap-2 text-gray-400">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                  </svg>
+                  <span>Всички обяви са актуални и проверени</span>
+                </div>
+                <div className="text-blue-400 font-semibold">
+                  Triumph Cars
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Additional Info */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-12 text-center"
+        >
+          <p className="text-gray-400 mb-6">
+            Не намирате това, което търсите? Свържете се с нас и ще ви помогнем да намерите идеалния автомобил!
+          </p>
+          <a
+            href="#contact"
+            className="inline-block px-10 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl text-lg"
+          >
+            Свържи се с Нас
+          </a>
         </motion.div>
       </div>
     </SectionWrapper>
