@@ -1,12 +1,15 @@
 import SectionWrapper from "@/components/ui/sectionWrapper"
 import { motion } from "framer-motion"
 import { useState } from "react"
+import { GiPalmTree, GiMountains, GiFactory, GiMapleLeaf } from "react-icons/gi"
+import { FaCity } from "react-icons/fa"
+import { BsBuilding } from "react-icons/bs"
 
 // Organized by regions
 const regions = [
   {
     name: "Западно Крайбрежие",
-    icon: "🌊",
+    icon: <GiPalmTree className="w-8 h-8" />,
     color: "from-blue-500 to-cyan-500",
     bgColor: "bg-blue-500/10",
     borderColor: "border-blue-500/30",
@@ -18,7 +21,7 @@ const regions = [
   },
   {
     name: "Североизток",
-    icon: "🏙️",
+    icon: <FaCity className="w-8 h-8" />,
     color: "from-indigo-500 to-purple-500",
     bgColor: "bg-indigo-500/10",
     borderColor: "border-indigo-500/30",
@@ -32,7 +35,7 @@ const regions = [
   },
   {
     name: "Средни Щати",
-    icon: "🌾",
+    icon: <GiFactory className="w-8 h-8" />,
     color: "from-green-500 to-emerald-500",
     bgColor: "bg-green-500/10",
     borderColor: "border-green-500/30",
@@ -48,7 +51,7 @@ const regions = [
   },
   {
     name: "Югоизток",
-    icon: "🌴",
+    icon: <GiPalmTree className="w-8 h-8" />,
     color: "from-purple-500 to-pink-500",
     bgColor: "bg-purple-500/10",
     borderColor: "border-purple-500/30",
@@ -62,7 +65,7 @@ const regions = [
   },
   {
     name: "Юг и Югозапад",
-    icon: "🌵",
+    icon: <BsBuilding className="w-8 h-8" />,
     color: "from-orange-500 to-red-500",
     bgColor: "bg-orange-500/10",
     borderColor: "border-orange-500/30",
@@ -75,7 +78,7 @@ const regions = [
   },
   {
     name: "Планински Щати",
-    icon: "⛰️",
+    icon: <GiMountains className="w-8 h-8" />,
     color: "from-yellow-500 to-amber-500",
     bgColor: "bg-yellow-500/10",
     borderColor: "border-yellow-500/30",
@@ -87,7 +90,7 @@ const regions = [
   },
   {
     name: "Канада",
-    icon: "🍁",
+    icon: <GiMapleLeaf className="w-8 h-8" />,
     color: "from-red-500 to-rose-500",
     bgColor: "bg-red-500/10",
     borderColor: "border-red-500/30",
@@ -158,8 +161,15 @@ export default function LocationsSection() {
               >
                 {/* Header */}
                 <div className={`${region.bgColor} border-b ${region.borderColor} px-6 py-4`}>
-                  <div className="flex items-center gap-3">
-                    <span className="text-4xl">{region.icon}</span>
+                  <div className="flex items-center gap-4">
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      className={`p-3 rounded-xl bg-gradient-to-br ${region.color}`}
+                    >
+                      <div className="text-white">
+                        {region.icon}
+                      </div>
+                    </motion.div>
                     <div>
                       <h3 className={`text-xl font-bold bg-gradient-to-r ${region.color} bg-clip-text text-transparent`}>
                         {region.name}

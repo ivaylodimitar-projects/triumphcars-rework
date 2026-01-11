@@ -8,8 +8,8 @@ export default function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1950&q=80"
-          alt="Американски автомобили"
+          src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1950&q=80"
+          alt="Луксозен Mercedes-Benz"
           className="w-full h-full object-cover scale-110"
         />
         {/* Dark overlay */}

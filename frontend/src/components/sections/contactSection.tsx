@@ -1,6 +1,7 @@
 import SectionWrapper from "../ui/sectionWrapper"
 import { motion } from "framer-motion"
 import { useState } from "react"
+import { FiPhone, FiMail, FiMapPin } from "react-icons/fi"
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -136,22 +137,31 @@ export default function ContactSection() {
             {/* Contact Cards */}
             {[
               {
-                icon: "📞",
                 title: "Телефон",
                 info: "+359 888 123 456",
-                subInfo: "Пон-Пет: 9:00 - 18:00"
+                subInfo: "Пон-Пет: 9:00 - 18:00",
+                color: "from-green-500 to-emerald-500",
+                bgColor: "bg-green-500/10",
+                borderColor: "border-green-500/30",
+                icon: <FiPhone className="w-8 h-8" />
               },
               {
-                icon: "✉️",
                 title: "Email",
                 info: "info@ironimport.bg",
-                subInfo: "Отговаряме в рамките на 24 часа"
+                subInfo: "Отговаряме в рамките на 24 часа",
+                color: "from-blue-500 to-cyan-500",
+                bgColor: "bg-blue-500/10",
+                borderColor: "border-blue-500/30",
+                icon: <FiMail className="w-8 h-8" />
               },
               {
-                icon: "📍",
                 title: "Адрес",
                 info: "София, България",
-                subInfo: "Посещения по предварителна уговорка"
+                subInfo: "Посещения по предварителна уговорка",
+                color: "from-purple-500 to-pink-500",
+                bgColor: "bg-purple-500/10",
+                borderColor: "border-purple-500/30",
+                icon: <FiMapPin className="w-8 h-8" />
               }
             ].map((contact, index) => (
               <motion.div
@@ -160,14 +170,23 @@ export default function ContactSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.02 }}
-                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-700/50 shadow-xl"
+                whileHover={{ scale: 1.05, y: -5 }}
+                className={`bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-2xl border ${contact.borderColor} shadow-xl hover:shadow-2xl transition-all duration-300`}
               >
                 <div className="flex items-start gap-4">
-                  <div className="text-4xl">{contact.icon}</div>
-                  <div>
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className={`${contact.bgColor} p-4 rounded-xl border ${contact.borderColor} bg-gradient-to-br ${contact.color}`}
+                  >
+                    <div className="text-white">
+                      {contact.icon}
+                    </div>
+                  </motion.div>
+                  <div className="flex-1">
                     <h3 className="text-xl font-bold text-white mb-2">{contact.title}</h3>
-                    <p className="text-blue-400 font-semibold mb-1">{contact.info}</p>
+                    <p className={`font-semibold mb-1 bg-gradient-to-r ${contact.color} bg-clip-text text-transparent`}>
+                      {contact.info}
+                    </p>
                     <p className="text-gray-400 text-sm">{contact.subInfo}</p>
                   </div>
                 </div>
