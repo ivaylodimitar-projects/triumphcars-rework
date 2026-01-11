@@ -6,11 +6,11 @@ export default function HeroSection() {
   return (
     <SectionWrapper id="hero">
       {/* Background image */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1950&q=80"
           alt="Американски автомобили"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-110"
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70"></div>
@@ -74,6 +74,7 @@ export default function HeroSection() {
           />
         </motion.div>
       </motion.div>
+
     </SectionWrapper>
   )
 }

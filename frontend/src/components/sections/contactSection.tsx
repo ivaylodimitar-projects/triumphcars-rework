@@ -144,7 +144,7 @@ export default function ContactSection() {
               {
                 icon: "✉️",
                 title: "Email",
-                info: "info@triumphcars.bg",
+                info: "info@ironimport.bg",
                 subInfo: "Отговаряме в рамките на 24 часа"
               },
               {

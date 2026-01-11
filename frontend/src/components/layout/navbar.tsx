@@ -59,9 +59,9 @@ export default function Navbar() {
             </div>
             <div className="hidden sm:block">
               <div className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
-                Triumph Cars
+                Iron Import
               </div>
-              <div className="text-xs text-gray-400">Внос от САЩ</div>
+              <div className="text-xs text-gray-400">Внос от САЩ и Канада</div>
             </div>
           </motion.a>
 
@@ -108,7 +108,7 @@ export default function Navbar() {
               <motion.span
                 animate={{
                   scale: [1, 1.15, 1],
-                  opacity: [0.4, 0.1, 0.4]
+                  opacity: [0.4, 0.2, 0.4]
                 }}
                 transition={{
                   duration: 2.5,
