@@ -41,7 +41,7 @@ export default function DeliveredCarsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Доставени Автомобили
+            Доставени aвтомобили
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
             Разгледайте някои от нашите успешни доставки и доволни клиенти

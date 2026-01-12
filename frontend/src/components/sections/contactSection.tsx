@@ -36,7 +36,7 @@ export default function ContactSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Свържете се с Нас
+            Свържете се с нас
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
             Готови сме да отговорим на всички ваши въпроси
@@ -121,7 +121,7 @@ export default function ContactSection() {
                 type="submit"
                 className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-xl transition-all duration-300 shadow-xl text-lg"
               >
-                Изпрати Съобщение
+                Изпрати съобщение
               </motion.button>
             </form>
           </motion.div>

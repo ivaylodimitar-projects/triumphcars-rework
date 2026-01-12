@@ -73,7 +73,7 @@ export default function Navbar() {
               { href: "#process", label: "Процес" },
               { href: "#inventory", label: "Автомобили" },
               { href: "#locations", label: "Локации" },
-              { href: "#about", label: "За Нас" },
+              { href: "#about", label: "За нас" },
               { href: "#contact", label: "Контакти" }
             ].map((link, index) => (
               <motion.a

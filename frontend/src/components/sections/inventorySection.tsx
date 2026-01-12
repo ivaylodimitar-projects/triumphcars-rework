@@ -18,7 +18,7 @@ export default function InventorySection() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Налични Автомобили
+            Налични автомобили
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-6">
             Разгледайте нашата селекция от качествени автомобили от САЩ и Канада

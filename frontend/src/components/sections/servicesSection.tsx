@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 
 const benefits = [
   {
-    title: "Над 10 Години Опит",
+    title: "Над 5 години опит",
     description: "Дългогодишен опит във вноса на автомобили от САЩ и Канада",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -15,7 +15,7 @@ const benefits = [
     borderColor: "border-blue-500/30"
   },
   {
-    title: "4 Собствени Паркинга",
+    title: "4 собствени паркинга",
     description: "Разполагаме със собствени паркинги за съхранение на автомобили",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -27,7 +27,7 @@ const benefits = [
     borderColor: "border-green-500/30"
   },
   {
-    title: "Собствени Митнически Агенти",
+    title: "Собствени митнически агенти",
     description: "Нашите митнически агенти осигуряват бързо и безпроблемно обмитяване",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -39,7 +39,7 @@ const benefits = [
     borderColor: "border-purple-500/30"
   },
   {
-    title: "Собствени Майстори в САЩ и Канада",
+    title: "Собствени майстори в САЩ и Канада",
     description: "Нашите специалисти на място проверяват всеки автомобил",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -51,7 +51,7 @@ const benefits = [
     borderColor: "border-yellow-500/30"
   },
   {
-    title: "Плащане След Оглед",
+    title: "Плащане след оглед",
     description: "Плащате за автомобила само след оглед от наш човек на място",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -63,7 +63,7 @@ const benefits = [
     borderColor: "border-pink-500/30"
   },
   {
-    title: "Пълна Помощ при Обмитяване",
+    title: "Пълна помощ при обмитяване",
     description: "Помощ при обмитяване, транспорт и регистрация в КАТ",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,7 +75,7 @@ const benefits = [
     borderColor: "border-red-500/30"
   },
   {
-    title: "Съдействие при Технотест",
+    title: "Съдействие при технотест",
     description: "Пълно съдействие и подготовка на автомобила за технотест",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,10 +102,10 @@ export default function ServicesSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Защо Да Изберете Нас?
+            Защо да изберете нас?
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-            Предлагаме най-добрите услуги за внос на автомобили от САЩ
+            Предлагаме най-добрите услуги за внос на автомобили от САЩ и Канада
           </p>
         </motion.div>
 
@@ -253,21 +253,23 @@ export default function ServicesSection() {
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="group relative z-10"
             >
-              <div className={`h-full bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border ${benefit.borderColor} shadow-xl hover:shadow-2xl transition-all duration-300`}>
+              <div className={`h-full bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-5 rounded-2xl border ${benefit.borderColor} shadow-xl hover:shadow-2xl transition-all duration-300`}>
                 {/* Icon */}
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.3 }}
-                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${benefit.color} flex items-center justify-center mb-6 shadow-lg text-white`}
+                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${benefit.color} flex items-center justify-center mb-4 shadow-lg text-white`}
                 >
-                  {benefit.icon}
+                  <div className="w-6 h-6">
+                    {benefit.icon}
+                  </div>
                 </motion.div>
 
                 {/* Content */}
-                <h3 className={`text-2xl font-bold mb-3 bg-gradient-to-r ${benefit.color} bg-clip-text text-transparent transition-all duration-300`}>
+                <h3 className={`text-lg font-bold mb-2 bg-gradient-to-r ${benefit.color} bg-clip-text text-transparent transition-all duration-300`}>
                   {benefit.title}
                 </h3>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-300 text-sm leading-relaxed">
                   {benefit.description}
                 </p>
               </div>

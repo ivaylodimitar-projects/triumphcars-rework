@@ -131,7 +131,7 @@ export default function LocationsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Дилърски <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Локации</span>
+            Дилърски <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">локации</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
             Работим с водещи дилъри и търгове в САЩ и Канада

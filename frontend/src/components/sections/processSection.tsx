@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 const steps = [
   {
     number: "01",
-    title: "Избор на Автомобил",
+    title: "Избор на автомобил",
     description: "Помагаме ви да изберете идеалния автомобил от американските търгове и дилъри.",
     color: "from-blue-500 to-cyan-500",
     bgColor: "bg-blue-500/10",
@@ -17,7 +17,7 @@ const steps = [
   },
   {
     number: "02",
-    title: "Проверка и Оценка",
+    title: "Проверка и оценка",
     description: "Извършваме детайлна проверка на състоянието и историята на автомобила.",
     color: "from-green-500 to-emerald-500",
     bgColor: "bg-green-500/10",
@@ -30,7 +30,7 @@ const steps = [
   },
   {
     number: "03",
-    title: "Покупка и Транспорт",
+    title: "Покупка и транспорт",
     description: "Закупуваме автомобила и организираме транспорта до България.",
     color: "from-purple-500 to-pink-500",
     bgColor: "bg-purple-500/10",
@@ -43,7 +43,7 @@ const steps = [
   },
   {
     number: "04",
-    title: "Митническо Оформяне",
+    title: "Митническо оформяне",
     description: "Грижим се за цялата документация и митническо оформяне.",
     color: "from-yellow-500 to-orange-500",
     bgColor: "bg-yellow-500/10",
@@ -56,7 +56,7 @@ const steps = [
   },
   {
     number: "05",
-    title: "Доставка при Вас",
+    title: "Доставка при вас",
     description: "Доставяме автомобила директно до вас, готов за регистрация.",
     color: "from-pink-500 to-rose-500",
     bgColor: "bg-pink-500/10",
@@ -82,19 +82,100 @@ export default function ProcessSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Как Работи Процесът?
+            Как работи процесът?
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-            Пет прости стъпки до вашия нов автомобил от Америка
+            Пет прости стъпки до вашия нов автомобил от Америка и Канада
           </p>
         </motion.div>
 
         {/* Process Steps */}
         <div className="relative">
-          {/* Connection Line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/20 via-blue-500/50 to-blue-500/20 -translate-x-1/2" />
+          {/* Animated Background Lines */}
+          <svg
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full pointer-events-none z-0"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              {/* Moving highlight gradients */}
+              <linearGradient id="processSnakeBlue1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="100">
+                <stop offset="0%" stopColor="rgb(59 130 246)" stopOpacity="0" />
+                <stop offset="45%" stopColor="rgb(59 130 246)" stopOpacity="0" />
+                <stop offset="50%" stopColor="rgb(59 130 246)" stopOpacity="0.7">
+                  <animate attributeName="stop-opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite" />
+                </stop>
+                <stop offset="55%" stopColor="rgb(59 130 246)" stopOpacity="0" />
+                <stop offset="100%" stopColor="rgb(59 130 246)" stopOpacity="0" />
+                <animateTransform attributeName="gradientTransform" type="translate" from="0 -50" to="0 150" dur="8s" repeatCount="indefinite" />
+              </linearGradient>
 
-          <div className="space-y-12 md:space-y-24">
+              <linearGradient id="processSnakeBlue2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="0">
+                <stop offset="0%" stopColor="rgb(147 51 234)" stopOpacity="0" />
+                <stop offset="43%" stopColor="rgb(147 51 234)" stopOpacity="0" />
+                <stop offset="50%" stopColor="rgb(147 51 234)" stopOpacity="0.6">
+                  <animate attributeName="stop-opacity" values="0.3;0.7;0.3" dur="3.5s" repeatCount="indefinite" />
+                </stop>
+                <stop offset="57%" stopColor="rgb(147 51 234)" stopOpacity="0" />
+                <stop offset="100%" stopColor="rgb(147 51 234)" stopOpacity="0" />
+                <animateTransform attributeName="gradientTransform" type="translate" from="-60 0" to="160 0" dur="10s" repeatCount="indefinite" />
+              </linearGradient>
+
+              <filter id="processSnakeGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="1.5" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            {/* Vertical flowing line */}
+            <motion.path
+              d="M 50 0 C 50 20, 50 20, 50 40 S 50 60, 50 80 S 50 90, 50 100"
+              stroke="url(#processSnakeBlue1)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              fill="none"
+              filter="url(#processSnakeGlow)"
+              initial={{ opacity: 0.15 }}
+              animate={{
+                d: [
+                  "M 50 0 C 50 20, 50 20, 50 40 S 50 60, 50 80 S 50 90, 50 100",
+                  "M 50 0 C 52 20, 48 20, 50 40 S 52 60, 50 80 S 48 90, 50 100",
+                  "M 50 0 C 50 20, 50 20, 50 40 S 50 60, 50 80 S 50 90, 50 100",
+                ],
+                opacity: [0.15, 0.3, 0.15],
+              }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            />
+
+            {/* Horizontal flowing line */}
+            <motion.path
+              d="M 0 50 C 20 50, 40 50, 60 50 S 80 50, 100 50"
+              stroke="url(#processSnakeBlue2)"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              fill="none"
+              filter="url(#processSnakeGlow)"
+              initial={{ opacity: 0.12 }}
+              animate={{
+                d: [
+                  "M 0 50 C 20 50, 40 50, 60 50 S 80 50, 100 50",
+                  "M 0 50 C 20 48, 40 52, 60 50 S 80 48, 100 50",
+                  "M 0 50 C 20 50, 40 50, 60 50 S 80 50, 100 50",
+                ],
+                opacity: [0.12, 0.25, 0.12],
+              }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            />
+          </svg>
+
+          {/* Connection Line */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/20 via-blue-500/50 to-blue-500/20 -translate-x-1/2 z-0" />
+
+          <div className="space-y-6 md:space-y-12 relative z-10">
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}
@@ -102,35 +183,92 @@ export default function ProcessSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`flex flex-col md:flex-row items-center gap-8 ${
+                className={`flex flex-col md:flex-row items-center gap-6 ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
-                {/* Content */}
+                {/* Content - Speech Bubble Style */}
                 <div className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
                   <motion.div
-                    whileHover={{ scale: 1.02, y: -5 }}
-                    className={`bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border ${step.borderColor} shadow-xl hover:shadow-2xl transition-all duration-300`}
+                    whileHover={{ scale: 1.05, y: -8 }}
+                    className="relative"
                   >
-                    <div className={`mb-4 flex justify-center bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}>
-                      {step.icon}
+                    {/* Speech Bubble */}
+                    <div className={`relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-sm p-4 rounded-3xl border ${step.borderColor} shadow-2xl hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all duration-300`}>
+                      {/* Icon Badge */}
+                      <div className={`mb-2 flex ${index % 2 === 0 ? "md:justify-end" : "md:justify-start"} justify-center`}>
+                        <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center text-white shadow-lg ring-2 ring-gray-900/50`}>
+                          <div className="w-5 h-5">
+                            {step.icon}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <h3 className={`text-base md:text-lg font-bold mb-1.5 bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}>
+                        {step.title}
+                      </h3>
+                      <p className="text-gray-300 text-xs md:text-sm leading-relaxed">
+                        {step.description}
+                      </p>
+
+                      {/* Decorative corner dots */}
+                      <div className={`absolute top-2 ${index % 2 === 0 ? "right-2" : "left-2"} w-1.5 h-1.5 rounded-full bg-gradient-to-br ${step.color} opacity-40`}></div>
+                      <div className={`absolute bottom-2 ${index % 2 === 0 ? "left-2" : "right-2"} w-1 h-1 rounded-full bg-gradient-to-br ${step.color} opacity-30`}></div>
                     </div>
-                    <h3 className={`text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}>
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-300 text-lg leading-relaxed">
-                      {step.description}
-                    </p>
+
+                    {/* Speech Bubble Tail */}
+                    <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 ${index % 2 === 0 ? "right-0 translate-x-full" : "left-0 -translate-x-full"}`}>
+                      <svg width="20" height="30" viewBox="0 0 20 30" className={index % 2 === 0 ? "" : "scale-x-[-1]"}>
+                        <path
+                          d="M 0 15 Q 10 10, 20 15 Q 10 20, 0 15"
+                          className={`fill-gray-800/60`}
+                          style={{ filter: 'blur(0.5px)' }}
+                        />
+                      </svg>
+                    </div>
                   </motion.div>
                 </div>
 
-                {/* Number Circle */}
+                {/* Number Circle with Pulse Effect */}
                 <div className="relative flex-shrink-0">
+                  {/* Pulsing rings */}
                   <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className={`w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-2xl border-4 border-gray-900 relative z-10`}
+                    className={`absolute inset-0 rounded-full bg-gradient-to-br ${step.color} opacity-20`}
+                    animate={{
+                      scale: [1, 1.4, 1],
+                      opacity: [0.2, 0, 0.2],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: index * 0.2,
+                    }}
+                  />
+                  <motion.div
+                    className={`absolute inset-0 rounded-full bg-gradient-to-br ${step.color} opacity-15`}
+                    animate={{
+                      scale: [1, 1.6, 1],
+                      opacity: [0.15, 0, 0.15],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: index * 0.2 + 0.3,
+                    }}
+                  />
+
+                  {/* Main circle */}
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                    className={`relative w-16 h-16 md:w-18 md:h-18 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-2xl border-4 border-gray-900/50 z-10`}
                   >
-                    <span className="text-2xl md:text-3xl font-bold text-white">
+                    {/* Inner glow */}
+                    <div className="absolute inset-1 rounded-full bg-white/10"></div>
+                    <span className="relative text-xl md:text-2xl font-bold text-white drop-shadow-lg">
                       {step.number}
                     </span>
                   </motion.div>
@@ -155,7 +293,7 @@ export default function ProcessSection() {
             href="#contact"
             className="inline-block px-10 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl text-lg"
           >
-            Започнете Сега
+            Започнете сега
           </a>
         </motion.div>
       </div>

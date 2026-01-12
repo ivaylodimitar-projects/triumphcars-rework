@@ -29,7 +29,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl md:text-7xl font-extrabold text-white drop-shadow-2xl mb-6"
         >
-          Внос на Автомобили от САЩ
+          Внос на автомобили от САЩ и Канада
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -37,7 +37,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-6 text-lg md:text-2xl text-gray-200 drop-shadow-lg font-light leading-relaxed"
         >
-          Професионални услуги за внос на автомобили от Америка.<br />
+          Професионални услуги за внос на автомобили от Америка и Канада.<br />
           Пълна проверка, транспорт и митническо оформяне.
         </motion.p>
         <motion.div
@@ -49,7 +49,7 @@ export default function HeroSection() {
             href="#inventory"
             className="inline-block mt-10 px-10 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl text-lg"
           >
-            Разгледай Автомобили
+            Разгледай автомобили
           </a>
         </motion.div>
       </motion.div>
@@ -61,7 +61,6 @@ export default function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.8 }}
       >
-        <span className="text-white text-sm font-light tracking-wider">Скролирай надолу</span>
         <motion.div
           animate={{ y: [0, 12, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
