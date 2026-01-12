@@ -1,6 +1,7 @@
 import SectionWrapper from "@/components/ui/sectionWrapper"
 import { motion } from "framer-motion"
 import { useState } from "react"
+import usaMap from "../../assets/usa_map.avif"
 import { GiPalmTree, GiMountains, GiFactory, GiMapleLeaf } from "react-icons/gi"
 import { FaCity } from "react-icons/fa"
 import { BsBuilding } from "react-icons/bs"
@@ -113,6 +114,14 @@ export default function LocationsSection() {
   return (
     <SectionWrapper id="locations">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Decorative USA map background (low opacity, non-interactive) */}
+        <div className="absolute inset-0 -z-10 pointer-events-none flex items-center justify-center">
+          <div
+            className="w-full h-full bg-center bg-no-repeat bg-contain opacity-20"
+            style={{ backgroundImage: `url(${usaMap})` }}
+          />
+        </div>
+        
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

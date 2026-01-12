@@ -110,7 +110,139 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+          {/* Gold “snake” lines that animate BETWEEN cards (not in the header area) */}
+          <svg
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full pointer-events-none z-0"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+          >
+            <defs>
+	              {/* Moving highlight gradients (no dashes/stripes; looks more fluid/modern) */}
+	              <linearGradient id="servicesSnakeGold1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="0">
+	                <stop offset="0%" stopColor="rgb(245 158 11)" stopOpacity="0" />
+	                <stop offset="42%" stopColor="rgb(245 158 11)" stopOpacity="0" />
+	                <stop offset="50%" stopColor="rgb(245 158 11)" stopOpacity="0.85">
+	                  <animate attributeName="stop-opacity" values="0.55;0.95;0.55" dur="2.8s" repeatCount="indefinite" />
+	                </stop>
+	                <stop offset="58%" stopColor="rgb(245 158 11)" stopOpacity="0" />
+	                <stop offset="100%" stopColor="rgb(245 158 11)" stopOpacity="0" />
+	                <animateTransform attributeName="gradientTransform" type="translate" from="-60 0" to="160 0" dur="6.5s" repeatCount="indefinite" />
+	              </linearGradient>
+
+	              <linearGradient id="servicesSnakeGold2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="0">
+	                <stop offset="0%" stopColor="rgb(245 158 11)" stopOpacity="0" />
+	                <stop offset="40%" stopColor="rgb(245 158 11)" stopOpacity="0" />
+	                <stop offset="50%" stopColor="rgb(245 158 11)" stopOpacity="0.8">
+	                  <animate attributeName="stop-opacity" values="0.45;0.9;0.45" dur="3.2s" repeatCount="indefinite" />
+	                </stop>
+	                <stop offset="60%" stopColor="rgb(245 158 11)" stopOpacity="0" />
+	                <stop offset="100%" stopColor="rgb(245 158 11)" stopOpacity="0" />
+	                <animateTransform attributeName="gradientTransform" type="translate" from="160 0" to="-60 0" dur="7.8s" repeatCount="indefinite" />
+	              </linearGradient>
+
+	              <linearGradient id="servicesSnakeGold3" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="0">
+	                <stop offset="0%" stopColor="rgb(245 158 11)" stopOpacity="0" />
+	                <stop offset="43%" stopColor="rgb(245 158 11)" stopOpacity="0" />
+	                <stop offset="50%" stopColor="rgb(245 158 11)" stopOpacity="0.75">
+	                  <animate attributeName="stop-opacity" values="0.4;0.85;0.4" dur="3.6s" repeatCount="indefinite" />
+	                </stop>
+	                <stop offset="57%" stopColor="rgb(245 158 11)" stopOpacity="0" />
+	                <stop offset="100%" stopColor="rgb(245 158 11)" stopOpacity="0" />
+	                <animateTransform attributeName="gradientTransform" type="translate" from="-40 0" to="140 0" dur="9.5s" repeatCount="indefinite" />
+	              </linearGradient>
+
+              <filter id="servicesSnakeGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="1.2" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            {/* Main snake path (weaves through the grid area) */}
+            <motion.path
+	              d="M -5 18 C 10 8, 20 8, 30 18 S 50 28, 60 18 S 80 8, 105 18"
+	              stroke="url(#servicesSnakeGold1)"
+	              strokeWidth="2.4"
+              strokeLinecap="round"
+	              strokeLinejoin="round"
+              fill="none"
+              filter="url(#servicesSnakeGlow)"
+	              initial={{ opacity: 0.18 }}
+	              animate={{
+	                d: [
+	                  "M -5 18 C 10 8, 20 8, 30 18 S 50 28, 60 18 S 80 8, 105 18",
+	                  "M -5 20 C 10 11, 20 6, 30 20 S 50 30, 60 20 S 80 10, 105 20",
+	                  "M -5 18 C 10 8, 20 8, 30 18 S 50 28, 60 18 S 80 8, 105 18",
+	                ],
+	                opacity: [0.18, 0.35, 0.18],
+	                strokeWidth: [2.2, 2.6, 2.2],
+	              }}
+	              transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
+            />
+
+            {/* Second snake path (lower area) */}
+            <motion.path
+	              d="M 105 55 C 90 45, 80 45, 70 55 S 50 65, 40 55 S 20 45, -5 55"
+	              stroke="url(#servicesSnakeGold2)"
+	              strokeWidth="2.4"
+              strokeLinecap="round"
+	              strokeLinejoin="round"
+              fill="none"
+              filter="url(#servicesSnakeGlow)"
+	              initial={{ opacity: 0.16 }}
+	              animate={{
+	                d: [
+	                  "M 105 55 C 90 45, 80 45, 70 55 S 50 65, 40 55 S 20 45, -5 55",
+	                  "M 105 57 C 90 48, 80 42, 70 57 S 50 69, 40 57 S 20 45, -5 57",
+	                  "M 105 55 C 90 45, 80 45, 70 55 S 50 65, 40 55 S 20 45, -5 55",
+	                ],
+	                opacity: [0.16, 0.32, 0.16],
+	                strokeWidth: [2.2, 2.6, 2.2],
+	              }}
+	              transition={{ duration: 6.1, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+            />
+
+            {/* Vertical-ish connector snake between columns */}
+            <motion.path
+	              d="M 33 0 C 28 18, 38 28, 33 45 S 28 72, 33 100"
+	              stroke="url(#servicesSnakeGold3)"
+	              strokeWidth="2.2"
+              strokeLinecap="round"
+	              strokeLinejoin="round"
+              fill="none"
+              filter="url(#servicesSnakeGlow)"
+	              initial={{ opacity: 0.12 }}
+	              animate={{
+	                d: [
+	                  "M 33 0 C 28 18, 38 28, 33 45 S 28 72, 33 100",
+	                  "M 35 0 C 30 16, 40 30, 35 48 S 30 74, 35 100",
+	                  "M 33 0 C 28 18, 38 28, 33 45 S 28 72, 33 100",
+	                ],
+	                opacity: [0.12, 0.26, 0.12],
+	              }}
+	              transition={{ duration: 7.2, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
+            />
+
+            {/* A subtle “head” dot that moves to sell the snake motion */}
+            <motion.circle
+              r="1.35"
+	              fill="rgba(245,158,11,0.9)"
+              filter="url(#servicesSnakeGlow)"
+	              initial={{ cx: 14, cy: 22, opacity: 0.0, scale: 0.9 }}
+	              animate={{
+	                cx: [14, 50, 86, 50, 14],
+	                cy: [22, 30, 22, 14, 22],
+	                opacity: [0.0, 0.55, 0.55, 0.55, 0.0],
+	                scale: [0.9, 1.1, 1.1, 1.0, 0.9],
+	              }}
+	              transition={{ duration: 8.2, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </svg>
+
           {benefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}
@@ -119,7 +251,7 @@ export default function ServicesSection() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="group"
+              className="group relative z-10"
             >
               <div className={`h-full bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border ${benefit.borderColor} shadow-xl hover:shadow-2xl transition-all duration-300`}>
                 {/* Icon */}

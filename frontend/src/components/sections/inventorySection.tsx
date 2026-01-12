@@ -8,6 +8,7 @@ export default function InventorySection() {
   return (
     <SectionWrapper id="inventory">
       <div className="w-full max-w-7xl mx-auto px-4">
+        
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -19,8 +20,8 @@ export default function InventorySection() {
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
             Налични Автомобили
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-6">
-            Разгледайте нашата селекция от качествени автомобили от САЩ
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-6">
+            Разгледайте нашата селекция от качествени автомобили от САЩ и Канада
           </p>
 
           {/* Mobile.bg Badge */}

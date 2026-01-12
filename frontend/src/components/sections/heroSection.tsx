@@ -75,6 +75,8 @@ export default function HeroSection() {
         </motion.div>
       </motion.div>
 
+      
+
     </SectionWrapper>
   )
 }
