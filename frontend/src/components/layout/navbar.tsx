@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useState, useEffect } from "react"
+import ironImportLogo from "@/assets/ironimportlogo.png"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -7,7 +8,7 @@ export default function Navbar() {
   const backgroundColor = useTransform(
     scrollY,
     [0, 100],
-    ["rgba(17, 24, 39, 0)", "rgba(17, 24, 39, 0.95)"]
+    ["rgba(0, 0, 0, 0)", "rgba(10, 10, 10, 0.95)"]
   )
 
   useEffect(() => {
@@ -40,22 +41,11 @@ export default function Navbar() {
             className="flex items-center gap-3 group"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-blue-500 blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300" />
-              <div className="relative bg-gradient-to-br from-blue-500 to-blue-700 p-2.5 rounded-xl shadow-lg">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
-              </div>
+              <img
+                src={ironImportLogo}
+                alt="Iron Import Logo"
+                className="h-12 w-12 object-contain"
+              />
             </div>
             <div className="hidden sm:block">
               <div className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">

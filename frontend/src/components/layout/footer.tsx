@@ -1,30 +1,21 @@
 import { motion } from "framer-motion"
+import ironImportLogo from "@/assets/ironimportlogo.png"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-gradient-to-b from-gray-900 to-black border-t border-gray-800">
+    <footer style={{ backgroundColor: "rgba(10, 10, 10, 0.95)" }} className="border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-gradient-to-br from-blue-500 to-blue-700 p-2.5 rounded-xl shadow-lg">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
-              </div>
+              <img
+                src={ironImportLogo}
+                alt="Iron Import Logo"
+                className="h-12 w-12 object-contain"
+              />
               <div>
                 <div className="text-xl font-bold text-white">Iron Import</div>
                 <div className="text-sm text-gray-400">Внос от САЩ и Канада</div>
@@ -137,7 +128,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-gray-800">
+        <div className="pt-8 border-t border-slate-900">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
               © {currentYear} Iron Import. Всички права запазени.

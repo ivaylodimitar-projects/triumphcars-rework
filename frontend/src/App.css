@@ -2,12 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+  background-color: rgba(15, 15, 15, 0.95);
+}
 
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: rgba(15, 15, 15, 0.95);
 }
 
 .logo {
