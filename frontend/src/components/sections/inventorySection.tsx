@@ -18,7 +18,7 @@ export default function InventorySection() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Налични автомобили
+            Налични Автомобили
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-6">
             Разгледайте нашата селекция от качествени автомобили от САЩ и Канада
@@ -125,7 +125,7 @@ export default function InventorySection() {
             href="#contact"
             className="inline-block px-10 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl text-lg"
           >
-            Свържи се с Нас
+            Свържи се с нас
           </a>
         </motion.div>
       </div>
