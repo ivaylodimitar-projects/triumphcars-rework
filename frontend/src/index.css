@@ -2,3 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    @apply bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950;
+    min-height: 100vh;
+  }
+
+  body {
+    @apply bg-transparent;
+  }
+}
+

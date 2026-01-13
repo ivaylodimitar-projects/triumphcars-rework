@@ -40,7 +40,7 @@ const benefits = [
     borderColor: "border-purple-500/30"
   },
   {
-    title: "Собствени майстори в САЩ и Канада",
+    title: "Собствени механици в САЩ и Канада",
     description: "Нашите специалисти на място проверяват всеки автомобил",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">

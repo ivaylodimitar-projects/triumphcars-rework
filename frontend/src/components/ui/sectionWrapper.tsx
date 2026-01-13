@@ -11,12 +11,12 @@ export default function SectionWrapper({ id, children, className = "" }: Props) 
   // Различни градиенти за различни секции
   const backgrounds: Record<string, string> = {
     hero: "", // No background for hero - it has its own image
-    services: "bg-gradient-to-br from-gray-800 via-gray-900 to-black",
-    process: "bg-gradient-to-br from-black via-gray-900 to-gray-800",
-    inventory: "bg-gradient-to-br from-gray-900 via-black to-gray-900",
-    about: "bg-gradient-to-br from-gray-800 via-gray-900 to-black",
-    delivered: "bg-gradient-to-br from-gray-900 via-black to-gray-800",
-    contact: "bg-gradient-to-br from-black via-gray-900 to-gray-800",
+    services: "bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950",
+    process: "bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900",
+    inventory: "bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950",
+    about: "bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900",
+    delivered: "bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950",
+    contact: "bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900",
   }
 
   const bgClass = backgrounds[id] || "bg-gray-900"
