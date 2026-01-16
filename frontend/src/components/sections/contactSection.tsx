@@ -2,6 +2,7 @@ import SectionWrapper from "../ui/sectionWrapper"
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi"
+import emailjs from '@emailjs/browser'
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -10,11 +11,43 @@ export default function ContactSection() {
     phone: "",
     message: ""
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: Implement form submission
-    console.log("Form submitted:", formData)
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      // EmailJS конфигурация от environment variables
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        message: formData.message
+      }
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey)
+
+      setSubmitStatus('success')
+      setFormData({ name: "", email: "", phone: "", message: "" })
+
+      // Скрий success съобщението след 5 секунди
+      setTimeout(() => setSubmitStatus('idle'), 5000)
+    } catch (error) {
+      console.error('Error sending email:', error)
+      setSubmitStatus('error')
+
+      // Скрий error съобщението след 5 секунди
+      setTimeout(() => setSubmitStatus('idle'), 5000)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -63,7 +96,7 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300"
+                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-white/50 transition-colors duration-300"
                   placeholder="Вашето име"
                 />
               </div>
@@ -79,7 +112,7 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300"
+                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-white/50 transition-colors duration-300"
                   placeholder="your@email.com"
                 />
               </div>
@@ -94,7 +127,7 @@ export default function ContactSection() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300"
+                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-white/50 transition-colors duration-300"
                   placeholder="+359 ..."
                 />
               </div>
@@ -110,7 +143,7 @@ export default function ContactSection() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300 resize-none"
+                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-white/50 transition-colors duration-300 resize-none"
                   placeholder="Как можем да ви помогнем?"
                 />
               </div>
@@ -119,10 +152,35 @@ export default function ContactSection() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-xl transition-all duration-300 shadow-xl text-lg"
+                disabled={isSubmitting}
+                className={`w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-xl transition-all duration-300 shadow-xl text-lg ${
+                  isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                }`}
               >
-                Изпрати съобщение
+                {isSubmitting ? 'Изпраща се...' : 'Изпрати съобщение'}
               </motion.button>
+
+              {/* Success Message */}
+              {submitStatus === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-green-500/20 border border-green-500/50 rounded-xl text-green-400 text-center"
+                >
+                  ✓ Съобщението е изпратено успешно! Ще се свържем с вас скоро.
+                </motion.div>
+              )}
+
+              {/* Error Message */}
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-red-500/20 border border-red-500/50 rounded-xl text-red-400 text-center"
+                >
+                  ✗ Възникна грешка при изпращането. Моля опитайте отново или се свържете директно на телефона.
+                </motion.div>
+              )}
             </form>
           </motion.div>
 
@@ -138,7 +196,7 @@ export default function ContactSection() {
             {[
               {
                 title: "Телефон",
-                info: "+359 888 123 456",
+                info: "+359 893 272 724",
                 subInfo: "Пон-Пет: 9:00 - 18:00",
                 color: "from-green-500 to-emerald-500",
                 bgColor: "bg-green-500/10",
@@ -147,7 +205,7 @@ export default function ContactSection() {
               },
               {
                 title: "Email",
-                info: "info@ironimport.bg",
+                info: "ironimportltd@gmail.com",
                 subInfo: "Отговаряме в рамките на 24 часа",
                 color: "from-blue-500 to-cyan-500",
                 bgColor: "bg-blue-500/10",
@@ -156,8 +214,8 @@ export default function ContactSection() {
               },
               {
                 title: "Адрес",
-                info: "София, България",
-                subInfo: "Посещения по предварителна уговорка",
+                info: "Симеоновско шосе 104 ет. 1, София",
+                // subInfo: "Посещения по предварителна уговорка",
                 color: "from-purple-500 to-pink-500",
                 bgColor: "bg-purple-500/10",
                 borderColor: "border-purple-500/30",

@@ -13,17 +13,17 @@ export default function SectionWrapper({ id, children, className = "" }: Props) 
     hero: "", // No background for hero - it has its own image
     services: "",
     process: "",
-    inventory: "",
+    // inventory: "",
     about: "",
-    delivered: "",
+    // delivered: "",
     contact: "",
   }
 
   const bgStyle = id !== "hero" ? { backgroundColor: "rgba(15, 15, 15, 0.95)" } : undefined
   const bgClass = backgrounds[id] || ""
-  const showPattern = id !== "hero" // Don't show pattern for hero section
-  const paddingClass = id === "hero" ? "py-20" : "px-6 py-20" // No horizontal padding for hero
-  const wrapContent = id !== "hero" // Don't wrap content for hero section
+  const showPattern = id !== "hero"
+  const paddingClass = id === "hero" ? "py-20" : "px-6 py-20"
+  const wrapContent = id !== "hero"
 
   const sectionStyle = id === "inventory"
     ? { backgroundImage: `linear-gradient(rgba(15, 15, 15, 0.62), rgba(15, 15, 15, 0.62)), url(${garageImg})` }

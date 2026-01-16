@@ -19,7 +19,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const phoneNumber = "+359888123456" // Замени с реалния номер
+  const phoneNumber = "+359893272724" // Замени с реалния номер
   const viberLink = `viber://chat?number=${phoneNumber}`
   const telLink = `tel:${phoneNumber}`
 

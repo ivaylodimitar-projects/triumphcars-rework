@@ -4,7 +4,7 @@ import ProcessSection from "@/components/sections/processSection"
 import InventorySection from "@/components/sections/inventorySection"
 import LocationsSection from "@/components/sections/locationsSection"
 import AboutSection from "@/components/sections/aboutSection"
-import DeliveredCarsSection from "@/components/sections/deliveredCarsSection"
+// import DeliveredCarsSection from "@/components/sections/deliveredCarsSection"
 import ContactSection from "@/components/sections/contactSection"
 import Navbar from "@/components/layout/navbar"
 import SideNav from "@/components/layout/sideNav"
@@ -19,7 +19,7 @@ const sections = [
   { id: "inventory", label: "Автомобили" },
   { id: "locations", label: "Локации" },
   { id: "about", label: "За Нас" },
-  { id: "delivered", label: "Доставени" },
+  // { id: "delivered", label: "Доставени" },
   { id: "contact", label: "Контакти" },
 ]
 
@@ -37,7 +37,7 @@ export default function Home() {
       <InventorySection />
       <LocationsSection />
       <AboutSection />
-      <DeliveredCarsSection />
+      {/* <DeliveredCarsSection /> */}
       <ContactSection />
 
       <Footer />
