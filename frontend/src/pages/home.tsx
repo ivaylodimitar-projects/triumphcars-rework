@@ -9,6 +9,7 @@ import ContactSection from "@/components/sections/contactSection"
 import Navbar from "@/components/layout/navbar"
 import SideNav from "@/components/layout/sideNav"
 import Footer from "@/components/layout/footer"
+import CookieConsent from "@/components/ui/cookieConsent"
 import { useScrollSpy } from "@/hooks/dynamicScroll"
 import "@/index.css"
 
@@ -41,6 +42,9 @@ export default function Home() {
       <ContactSection />
 
       <Footer />
+
+      {/* Cookie Consent Banner */}
+      <CookieConsent />
     </>
   )
 }
