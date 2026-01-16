@@ -135,14 +135,6 @@ export default function Footer() {
               <br />
               <a href="https://kode.bg/" target="_blank" className="text-blue-500 hover:text-blue-200 transition-colors">Powered by KODE</a>
             </p>
-            <div className="flex gap-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                Политика за поверителност
-              </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                Условия за ползване
-              </a>
-            </div>
           </div>
         </div>
       </div>
