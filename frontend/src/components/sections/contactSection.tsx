@@ -28,8 +28,8 @@ export default function ContactSection() {
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
-        phone: formData.phone,
-        message: formData.message
+        from_phone: formData.phone,
+        from_message: formData.message
       }
 
       await emailjs.send(serviceId, templateId, templateParams, publicKey)
