@@ -46,25 +46,18 @@ export const hasGivenConsent = (): boolean => {
   return getCookiePreferences() !== null
 }
 
-/**
- * Изтрий cookie consent (за тестване)
- */
 export const clearCookieConsent = (): void => {
   localStorage.removeItem('cookieConsent')
   localStorage.removeItem('cookieConsentDate')
 }
 
-/**
- * Инициализирай Google Analytics (само ако има съгласие)
- * Използвай това когато искаш да добавиш Google Analytics
- */
 export const initializeAnalytics = (measurementId: string): void => {
   if (!hasAnalyticsConsent()) {
     console.log('Analytics consent not given')
     return
   }
 
-  // Добави Google Analytics script
+  // Google Analytics script
   const script = document.createElement('script')
   script.async = true
   script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`

@@ -31,7 +31,6 @@ export default function SideNav({ sections, activeId }: Props) {
                 }`}
               />
 
-              {/* Label - показва се при hover */}
               <span
                 className={`absolute left-6 whitespace-nowrap px-3 py-1.5 rounded-lg font-medium transition-all duration-300 ${
                   activeId === s.id

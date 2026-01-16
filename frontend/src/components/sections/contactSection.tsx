@@ -20,7 +20,7 @@ export default function ContactSection() {
     setSubmitStatus('idle')
 
     try {
-      // EmailJS конфигурация от environment variables
+      // EmailJS конфигурация
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
@@ -37,13 +37,11 @@ export default function ContactSection() {
       setSubmitStatus('success')
       setFormData({ name: "", email: "", phone: "", message: "" })
 
-      // Скрий success съобщението след 5 секунди
       setTimeout(() => setSubmitStatus('idle'), 5000)
     } catch (error) {
       console.error('Error sending email:', error)
       setSubmitStatus('error')
 
-      // Скрий error съобщението след 5 секунди
       setTimeout(() => setSubmitStatus('idle'), 5000)
     } finally {
       setIsSubmitting(false)
@@ -60,7 +58,6 @@ export default function ContactSection() {
   return (
     <SectionWrapper id="contact">
       <div className="w-full max-w-7xl mx-auto px-4">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -160,7 +157,6 @@ export default function ContactSection() {
                 {isSubmitting ? 'Изпраща се...' : 'Изпрати съобщение'}
               </motion.button>
 
-              {/* Success Message */}
               {submitStatus === 'success' && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
@@ -171,7 +167,6 @@ export default function ContactSection() {
                 </motion.div>
               )}
 
-              {/* Error Message */}
               {submitStatus === 'error' && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}

@@ -5,14 +5,12 @@ import { motion } from "framer-motion"
 export default function HeroSection() {
   return (
     <SectionWrapper id="hero">
-      {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1950&q=80"
           alt="Луксозен Mercedes-Benz"
           className="w-full h-full object-cover scale-110"
         />
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70"></div>
       </div>
 
@@ -54,7 +52,6 @@ export default function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Scroll down indicator */}
       <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}

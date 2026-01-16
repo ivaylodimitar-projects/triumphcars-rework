@@ -6,7 +6,6 @@ export default function AboutSection() {
     <SectionWrapper id="about">
       <div className="w-full max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -38,7 +37,6 @@ export default function AboutSection() {
               </p>
             </div>
 
-            {/* Features */}
             <div className="grid grid-cols-2 gap-6 mt-10">
               {[
                 {
@@ -89,7 +87,6 @@ export default function AboutSection() {
             </div>
           </motion.div>
 
-          {/* Right Side - Image */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -106,7 +103,6 @@ export default function AboutSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-blue-900/30 to-transparent" />
             </div>
 
-            {/* Decorative Elements */}
             <div className="absolute -top-6 -right-6 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl" />
             <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl" />
           </motion.div>
