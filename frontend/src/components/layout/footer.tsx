@@ -132,6 +132,8 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
               © {currentYear} Iron Import. Всички права запазени.
+              <br />
+              <a href="" target="_blank" className="text-blue-500 hover:text-blue-200 transition-colors">Powered by KODE</a>
             </p>
             <div className="flex gap-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
